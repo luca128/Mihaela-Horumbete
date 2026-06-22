@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promoții – Mihaela Horumbete</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #2d4a5e; --gold: #b8956a; --cream: #faf8f5;
+      --cream-dark: #f2ede6; --text: #3a3530; --text-light: #7a6f66;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); }
+
+    .page-hero {
+      padding-top: 130px; padding-bottom: 70px;
+      text-align: center; background: var(--cream-dark);
+    }
+    .eyebrow {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .page-hero h1 {
+      font-family: 'Great Vibes', cursive; font-size: 72px; color: var(--navy); line-height: 1.2;
+    }
+    .page-hero p {
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300;
+      color: var(--text-light); margin-top: 20px; font-style: italic;
+    }
+    .divider { width: 48px; height: 1px; background: var(--gold); margin: 28px auto 0; }
+
+    /* HERO IMAGE */
+    .hero-img-section { position: relative; height: 380px; overflow: hidden; }
+    .hero-img-section img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .hero-img-section .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(45,74,94,0.2), rgba(45,74,94,0.55));
+    }
+
+    /* PROMOS */
+    .promos { padding: 90px 60px; }
+    .promos-inner { max-width: 960px; margin: 0 auto; }
+    .promos > .promos-inner > .eyebrow { text-align: center; margin-bottom: 12px; }
+    .promos h2 {
+      font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300;
+      color: var(--navy); text-align: center; margin-bottom: 64px; line-height: 1.4;
+    }
+
+    .promo-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; margin-bottom: 40px; overflow: hidden;
+    }
+    .promo-card:nth-child(even) .promo-content { order: -1; }
+    .promo-badge {
+      background: var(--navy);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 60px 40px; text-align: center;
+    }
+    .promo-badge .label {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .promo-badge .price-old {
+      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300;
+      color: rgba(255,255,255,0.4); text-decoration: line-through; margin-bottom: 8px;
+    }
+    .promo-badge .price-new {
+      font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300;
+      color: #fff; line-height: 1;
+    }
+    .promo-badge .price-currency {
+      font-family: 'Jost', sans-serif; font-size: 18px; font-weight: 300;
+      color: var(--gold); margin-top: 4px;
+    }
+    .promo-badge .duration-badge {
+      margin-top: 20px;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); border: 1px solid rgba(184,149,106,0.3);
+      padding: 6px 16px;
+    }
+
+    .promo-content {
+      background: var(--cream-dark); padding: 60px 56px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .promo-content h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400;
+      color: var(--navy); margin-bottom: 20px; line-height: 1.3;
+    }
+    .promo-content p {
+      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300;
+      line-height: 1.85; color: var(--text); margin-bottom: 16px;
+    }
+    .promo-content ul {
+      list-style: none; margin: 12px 0 24px;
+    }
+    .promo-content ul li {
+      font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 300;
+      color: var(--text); line-height: 1.7; padding-left: 20px; position: relative;
+    }
+    .promo-content ul li::before {
+      content: '·'; position: absolute; left: 0; color: var(--gold); font-size: 20px;
+    }
+    .btn-gold {
+      display: inline-block; font-family: 'Jost', sans-serif; font-size: 12px;
+      font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase;
+      color: #fff; background: var(--gold); padding: 14px 36px;
+      text-decoration: none; transition: background 0.25s; border: none; cursor: pointer; align-self: flex-start;
+    }
+    .btn-gold:hover { background: #a07a52; }
+
+    /* CONTACT FORM */
+    .contact-section { background: var(--cream); padding: 100px 40px; }
+    .contact-inner { max-width: 680px; margin: 0 auto; }
+    .contact-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300;
+      font-style: italic; color: var(--navy); text-align: center; margin-bottom: 12px;
+    }
+    .contact-sub {
+      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
+      color: var(--text-light); text-align: center; margin-bottom: 48px; letter-spacing: 0.5px;
+    }
+    .contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; margin-bottom: 20px; }
+    .form-group label {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--navy); margin-bottom: 8px;
+    }
+    .form-group input, .form-group textarea {
+      font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 300;
+      color: var(--text); background: transparent; border: none;
+      border-bottom: 1px solid rgba(184,149,106,0.4); padding: 10px 0;
+      outline: none; transition: border-color 0.2s; resize: none;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-bottom-color: var(--gold); }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-light); font-style: italic; }
+    .btn-submit {
+      display: block; width: 100%; font-family: 'Jost', sans-serif; font-size: 12px;
+      font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase;
+      color: #fff; background: var(--gold); padding: 16px; border: none; cursor: pointer;
+      transition: background 0.25s;
+    }
+    .btn-submit:hover { background: #a07a52; }
+
+    .whatsapp-btn {
+      position: fixed; bottom: 32px; right: 32px; z-index: 999;
+      width: 58px; height: 58px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.2s; text-decoration: none;
+    }
+    .whatsapp-btn:hover { transform: scale(1.1); }
+    .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+    footer {
+      background: var(--navy); padding: 48px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    footer .footer-logo img { height: 50px; filter: brightness(0) invert(1) opacity(0.7); }
+    footer p { font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1px; color: rgba(255,255,255,0.4); }
+    footer nav a {
+      font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none;
+      margin-left: 28px; transition: color 0.2s;
+    }
+    footer nav a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .promos { padding: 60px 24px; }
+      .promo-card { grid-template-columns: 1fr; }
+      .promo-card:nth-child(even) .promo-content { order: 0; }
+      .promo-content { padding: 40px 28px; }
+      footer { flex-direction: column; gap: 24px; text-align: center; }
+      footer nav a { margin: 0 12px; }
+    }
+  
+    /* NAVBAR */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background-color: #faf8f5;
+      border-bottom: 1px solid #c9a87a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px;
+      box-sizing: border-box;
+      z-index: 99999;
+    }
+    #navbar img.logo {
+      height: 64px;
+      width: auto;
+    }
+    #navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 30px;
+    }
+    #navbar ul li a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #2d4a5e !important;
+      text-decoration: none !important;
+    }
+    #navbar ul li a:hover {
+      color: #b8956a !important;
+    }
+    #navbar .nav-btn {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #b8956a !important;
+      border: 1.5px solid #b8956a;
+      padding: 10px 22px;
+      text-decoration: none !important;
+      white-space: nowrap;
+    }
+    #navbar .nav-btn:hover {
+      background: #b8956a;
+      color: #fff !important;
+    }
+    body { padding-top: 70px; }
+    </style>
+</head>
+<body>
+  <div id="navbar">
+    <a href="index.html"><img class="logo" src="logo.svg" alt="Mihaela Horumbete"></a>
+    <ul>
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="despre-mine.html">Despre mine</a></li>
+      <li><a href="intalniri.html">Întâlniri</a></li>
+      <li><a href="promotii.html">Promoții</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="nav-btn" href="contact.html">Programează o sesiune</a>
+  </div>
+
+
+  
+
+  <section class="page-hero">
+    <p class="eyebrow">Oferte speciale</p>
+    <h1>Promoții</h1>
+    <p>Primul pas este cel mai important. Îl facem împreună.</p>
+    <div class="divider"></div>
+  </section>
+
+  <section class="hero-img-section">
+    <img src="promotii-hero.jpg" alt="Sesiune de coaching">
+    <div class="overlay"></div>
+  </section>
+
+  <section class="promos">
+    <div class="promos-inner">
+      <p class="eyebrow">Oferte disponibile</p>
+      <h2>Descoperă formatul potrivit pentru tine</h2>
+
+      <!-- PROMO 1 -->
+      <div class="promo-card">
+        <div class="promo-badge">
+          <div class="label">Sesiune individuală</div>
+          <div class="price-old">50 €</div>
+          <div class="price-new">19</div>
+          <div class="price-currency">EURO</div>
+          <div class="duration-badge">50 minute</div>
+        </div>
+        <div class="promo-content">
+          <h3>Descoperă mesajul din spatele comportamentelor copiilor tăi sau cu elevii</h3>
+          <p>În cadrul unei sesiuni individuale de 50 de minute vom explora împreună o situație care te preocupă în relația cu copilul tău, cu elevii tăi sau în propria viață.</p>
+          <p>Vom identifica emoțiile, nevoile și blocajele care se ascund în spatele comportamentelor și vom căuta perspective și soluții noi.</p>
+          <a href="#contact" class="btn-gold">Rezervă acum</a>
+        </div>
+      </div>
+
+      <!-- PROMO 2 -->
+      <div class="promo-card">
+        <div class="promo-content">
+          <h3>Sesiune exploratorie expres</h3>
+          <p>Dacă ești părinte sau profesor și te confrunți cu:</p>
+          <ul>
+            <li>conflicte repetate;</li>
+            <li>crize de furie;</li>
+            <li>dificultăți de comunicare;</li>
+            <li>anxietate;</li>
+            <li>blocaje relaționale.</li>
+          </ul>
+          <p>Te invit la o conversație scurtă de 15 minute pentru a descoperi dacă coachingul este potrivit pentru tine.</p>
+          <a href="#contact" class="btn-gold">Rezervă acum</a>
+        </div>
+        <div class="promo-badge">
+          <div class="label">Sesiune expres</div>
+          <div class="price-old">15 €</div>
+          <div class="price-new">7</div>
+          <div class="price-currency">EURO</div>
+          <div class="duration-badge">15 minute</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <p class="eyebrow" style="text-align:center;">Rezervă promoția</p>
+      <h2 class="contact-title">Hai să vorbim</h2>
+      <p class="contact-sub">Completează formularul și îți voi răspunde în cel mai scurt timp.</p>
+      <form class="contact-form" action="https://formsubmit.co/hrmbt@yahoo.com" method="POST">
+        <input type="hidden" name="_subject" value="Rezervare promoție - Mihaela Horumbete">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="multumesc.html">
+        <input type="text" name="_honey" style="display:none">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nume</label>
+            <input type="text" name="nume" placeholder="Numele tău" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="adresa@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Promoția dorită</label>
+          <input type="text" name="promotie" placeholder="Sesiune de 50 min (19€) sau Sesiune expres (7€)">
+        </div>
+        <div class="form-group">
+          <label>Mesaj</label>
+          <textarea name="mesaj" rows="4" placeholder="Descrie pe scurt situația ta..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Trimite cererea</button>
+      </form>
+    </div>
+  </section>
+
+  <a href="https://wa.me/34652323150" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <footer>
+    <div class="footer-logo"><img src="logo.svg" alt="Mihaela Horumbete"></div>
+    <p>© 2026 Mihaela Horumbete · Coach</p>
+    
+  </footer>
+
+</body>
+</html>
