@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="../logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog – Mihaela Horumbete</title>
+  <title>Sesiones – Mihaela Horumbete</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,6 +15,9 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); }
 
+    /* NAV */
+
+    /* PAGE HERO */
     .page-hero {
       padding-top: 130px; padding-bottom: 70px;
       text-align: center; background: var(--cream-dark);
@@ -24,37 +27,140 @@
       letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
     }
     .page-hero h1 {
-      font-family: 'Great Vibes', cursive; font-size: 72px; color: var(--navy); line-height: 1.2;
+      font-family: 'Great Vibes', cursive; font-size: 72px;
+      color: var(--navy); line-height: 1.2;
     }
     .page-hero p {
-      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300;
-      color: var(--text-light); margin-top: 20px; font-style: italic;
+      font-family: 'Cormorant Garamond', serif; font-size: 20px;
+      font-weight: 300; color: var(--text-light); margin-top: 20px;
+      font-style: italic;
     }
     .divider { width: 48px; height: 1px; background: var(--gold); margin: 28px auto 0; }
 
-    .coming-soon {
-      padding: 120px 40px; text-align: center;
+    /* HERO IMAGE */
+    .hero-img-section {
+      position: relative; height: 420px; overflow: hidden;
     }
-    .coming-soon h2 {
+    .hero-img-section img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center;
+    }
+    .hero-img-section .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(45,74,94,0.3), rgba(45,74,94,0.6));
+    }
+    .hero-img-section .overlay-text {
+      position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%);
+      text-align: center;
+    }
+    .hero-img-section .overlay-text p {
+      font-family: 'Cormorant Garamond', serif; font-size: 26px;
+      font-style: italic; font-weight: 300; color: #fff; line-height: 1.5;
+    }
+
+    /* SERVICES GRID */
+    .services { padding: 90px 60px; }
+    .services-inner { max-width: 1100px; margin: 0 auto; }
+    .services > .services-inner > .eyebrow { text-align: center; margin-bottom: 16px; }
+    .services h2 {
+      font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300;
+      color: var(--navy); text-align: center; margin-bottom: 60px; line-height: 1.4;
+    }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    }
+    .service-card {
+      background: var(--cream-dark);
+      padding: 44px 36px;
+      border-bottom: 2px solid var(--gold);
+      transition: transform 0.2s;
+    }
+    .service-card:hover { transform: translateY(-4px); }
+    .service-icon {
+      font-size: 32px; margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 24px;
+      font-weight: 400; color: var(--navy); margin-bottom: 16px;
+    }
+    .service-card p {
+      font-family: 'Cormorant Garamond', serif; font-size: 17px;
+      font-weight: 300; line-height: 1.8; color: var(--text); margin-bottom: 12px;
+    }
+    .service-card .duration {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+      margin-top: 20px;
+    }
+
+    /* HOW IT WORKS */
+    .how { background: var(--navy); padding: 90px 60px; }
+    .how-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+    .how .eyebrow { color: var(--gold); margin-bottom: 16px; }
+    .how h2 {
       font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300;
-      color: var(--navy); margin-bottom: 20px;
+      color: #fff; margin-bottom: 56px; line-height: 1.4;
     }
-    .coming-soon p {
-      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300;
-      font-style: italic; color: var(--text-light); max-width: 520px; margin: 0 auto;
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .step {}
+    .step-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300;
+      color: rgba(184,149,106,0.4); line-height: 1; margin-bottom: 16px;
+    }
+    .step h4 {
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+    }
+    .step p {
+      font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 300;
+      color: rgba(255,255,255,0.75); line-height: 1.8;
+    }
+
+    /* QUOTE */
+    .quote-section { padding: 90px 60px; text-align: center; background: var(--cream-dark); }
+    .quote-section blockquote {
+      font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300;
+      font-style: italic; color: var(--navy); max-width: 720px; margin: 0 auto;
       line-height: 1.7;
     }
-    .coming-soon .gold-line {
-      width: 48px; height: 1px; background: var(--gold); margin: 36px auto;
+    .quote-section blockquote::before {
+      content: '\201C'; font-size: 72px; color: var(--gold);
+      line-height: 0; vertical-align: -0.35em; margin-right: 8px; font-style: normal;
     }
+
+    /* CONTACT FORM */
+    .contacto-section { background: var(--cream); padding: 100px 40px; }
+    .contacto-inner { max-width: 680px; margin: 0 auto; }
+    .contacto-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300;
+      font-style: italic; color: var(--navy); text-align: center; margin-bottom: 12px;
+    }
+    .contacto-sub {
+      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
+      color: var(--text-light); text-align: center; margin-bottom: 48px; letter-spacing: 0.5px;
+    }
+    .contacto-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; margin-bottom: 20px; }
+    .form-group label {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--navy); margin-bottom: 8px;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 300;
+      color: var(--text); background: transparent; border: none;
+      border-bottom: 1px solid rgba(184,149,106,0.4); padding: 10px 0;
+      outline: none; transition: border-color 0.2s; resize: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-bottom-color: var(--gold); }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-light); font-style: italic; }
     .btn-gold {
       display: inline-block; font-family: 'Jost', sans-serif; font-size: 12px;
       font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase;
-      color: #fff; background: var(--gold); padding: 14px 36px;
-      text-decoration: none; transition: background 0.25s;
+      color: #fff; background: var(--gold); padding: 16px 44px;
+      text-decoration: none; transition: background 0.25s; border: none; cursor: pointer;
     }
     .btn-gold:hover { background: #a07a52; }
 
+    /* WHATSAPP */
     .whatsapp-btn {
       position: fixed; bottom: 32px; right: 32px; z-index: 999;
       width: 58px; height: 58px; background: #25D366; border-radius: 50%;
@@ -64,6 +170,7 @@
     .whatsapp-btn:hover { transform: scale(1.1); }
     .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
 
+    /* FOOTER */
     footer {
       background: var(--navy); padding: 48px 60px;
       display: flex; align-items: center; justify-content: space-between;
@@ -78,6 +185,10 @@
     footer nav a:hover { color: var(--gold); }
 
     
+      .services-grid { grid-template-columns: 1fr; }
+      .how { padding: 60px 24px; }
+      .steps { grid-template-columns: 1fr; gap: 32px; }
+      footer { flex-direction: column; gap: 24px; text-align: center; }
       footer nav a { margin: 0 12px; }
     }
   
@@ -315,14 +426,14 @@
 
   <!-- MOBILE MENU -->
   <div id="mobile-menu">
-    <a class="lang-link" href="index.html" onclick="closeMobileMenu()">Acasă</a>
-    <a href="despre-mine.html" onclick="closeMobileMenu()">Despre mine</a>
-    <a href="intalniri.html" onclick="closeMobileMenu()">Întâlniri</a>
-    <a href="promotii.html" onclick="closeMobileMenu()">Promoții</a>
-    <a href="blog.html" onclick="closeMobileMenu()">Blog</a>
-    <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
-    <a href="index-sp.html" class="mobile-lang" onclick="closeMobileMenu()">ES</a>
-    <a href="contact.html" class="mobile-cta" onclick="closeMobileMenu()">Programează o sesiune</a>
+    <a class="lang-link" href="index-sp.html" onclick="closeMobileMenu()">Inicio</a>
+    <a href="sobre-mi.html" onclick="closeMobileMenu()">Sobre mí</a>
+    <a href="sesiones.html" onclick="closeMobileMenu()">Sesiones</a>
+    <a href="promociones.html" onclick="closeMobileMenu()">Promociones</a>
+    <a href="blog-es.html" onclick="closeMobileMenu()">Blog</a>
+    <a href="contacto.html" onclick="closeMobileMenu()">Contacto</a>
+    <a href="index.html" class="mobile-lang" onclick="closeMobileMenu()">RO</a>
+    <a href="contacto.html" class="mobile-cta" onclick="closeMobileMenu()">Reserva una sesión</a>
   </div>
   <script>
     function toggleMobileMenu() {
@@ -336,17 +447,17 @@
   </script>
 
       <div id="navbar">
-    <a href="index.html"><img class="logo" src="logo.png" alt="Mihaela Horumbete"></a>
+    <a href="index-sp.html"><img class="logo" src="logo.png" alt="Mihaela Horumbete"></a>
     <ul>
-      <li><a href="index.html">Acasă</a></li>
-      <li><a href="despre-mine.html">Despre mine</a></li>
-      <li><a href="intalniri.html">Întâlniri</a></li>
-      <li><a href="promotii.html">Promoții</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index-sp.html">Inicio</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="sesiones.html">Sesiones</a></li>
+      <li><a href="promociones.html">Promociones</a></li>
+      <li><a href="blog-es.html">Blog</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
     </ul>
-    <a href="index-sp.html" style="font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:500;letter-spacing:2px;color:#2d4a5e;text-decoration:none;display:flex;align-items:center;gap:6px;margin-right:16px;" class_temp="lang-link">ES</a>
-    <a class="nav-btn" href="contact.html">Programează o sesiune</a>
+    <a class="lang-link" href="index.html">RO</a>
+    <a class="nav-btn" href="contacto.html">Reserva una sesión</a>
       <div id="hamburger" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
     </div>
@@ -356,37 +467,168 @@
   
 
   <section class="page-hero">
-    <p class="eyebrow">Reflecții & articole</p>
-    <h1>Blog</h1>
-    <p>Gânduri despre emoții, comportamente și relații.</p>
+    <p class="eyebrow">Cómo trabajamos juntos</p>
+    <h1>Sesiones</h1>
+    <p>Sesiones individuales · Cursos online · Cursos presenciales</p>
     <div class="divider"></div>
   </section>
 
-  <section class="coming-soon">
-    <h2>Articolele sunt în pregătire</h2>
-    <div class="gold-line"></div>
-    <p>În curând vei găsi aici articole despre emoții, comportamente și relații — scrise din experiența mea ca coach, profesor și mamă.</p>
-    <br><br>
-    <a href="contact.html" class="btn-gold">Contactează-mă</a>
+  <section class="hero-img-section">
+    <img src="intalniri-hero.jpg" alt="Sesión de coaching">
+    <div class="overlay"></div>
+    <div class="overlay-text">
+      <p>Fiecare sesión este un pas spre comprensión.<br>Fiecare conversație, o oportunitate de cambio.</p>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="services-inner">
+      <p class="eyebrow">Formato de las sesiones</p>
+      <h2>Elige el formato adecuado para ti</h2>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3>Sesiones online 1:1</h3>
+          <p>Sesiones individuales realizadas online, a distancia, mediante videollamada. La comodidad de tu hogar, mi presencia.</p>
+          <p>Exploramos juntos las situaciones que te preocupan — comportamientos, conflictoos, emociones — y buscamos las perspectivas y recursos que ya te pertenecen.</p>
+          <div class="duration">50 minutos · Online</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📞</div>
+          <h3>Sesiones telefónicas</h3>
+          <p>Para quienes prefieren la voz sin pantalla. Simple, accesible, igual de eficaz.</p>
+          <p>Una llamada telefónica de coaching puede ser a veces más abierta — sin la presión de la cámara, solo palabras y escucha.</p>
+          <div class="duration">50 minutos · Teléfono</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎓</div>
+          <h3>Cursos online</h3>
+          <p>Módulos estructurados sobre temas específicos: emociones y comportamientos, comunicación con el niño, gestión de conflictoos, ansiedad en la familia.</p>
+          <p>Ritmo propio, acceso flexible, contenido aplicable de inmediato en la vida cotidiana.</p>
+          <div class="duration">Formato flexible · Online</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏫</div>
+          <h3>Cursos presenciales</h3>
+          <p>Talleres y cursos presenciales, en grupo pequeño. Espacio de reflexión, intercambio de experiencias y conexión real.</p>
+          <p>Ideal para padres y docentes que desean trabajar en un entorno estructurado y de apoyo.</p>
+          <div class="duration">Formato variable · Presencial</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">👥</div>
+          <h3>Cursos en grupo</h3>
+          <p>Sesiones grupales para padres o docentes con desafíos similares. La fuerza del grupo añade perspectivas que las sesiones individuales no pueden ofrecer.</p>
+          <p>En un grupo, no estás solo con tus preguntas.</p>
+          <div class="duration">50 minutos / sesión · Grupoo</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🌟</div>
+          <h3>Primera sesión</h3>
+          <p>¿No sabes por dónde empezar? Comenzamos con una sesión exploratoria en la que presentas tu situación y descubrimos juntos si el coaching es adecuado para ti.</p>
+          <p>Sin presión. Sin compromisos.</p>
+          <div class="duration">15–50 minutos · Online sau telefonic</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="how-inner">
+      <p class="eyebrow">Cómo funciona</p>
+      <h2>Nuestro proceso juntos</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h4>Contactoezi</h4>
+          <p>Me escribes a través del formulario o por WhatsApp. Acordamos juntos la fecha y el formato adecuado.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h4>Exploramos</h4>
+          <p>En la sesión de 50 minutos, exploramos tu situación, las emociones detrás de los comportamientos y los recursos que ya tienes.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h4>Avanzas</h4>
+          <p>Te vas con claridad, no con soluciones prescritas. Con tus propias respuestas, descubiertas en el proceso de coaching.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <blockquote>
+      El cambio no viene del control del comportamiento. Viene de comprender la emoción que lo genera.
+    </blockquote>
+  </section>
+
+  <section class="contacto-section" id="contacto">
+    <div class="contacto-inner">
+      <p class="eyebrow" style="text-align:center;">Reserva una sesión</p>
+      <h2 class="contacto-title">Hablemos</h2>
+      <p class="contacto-sub">Rellena el formulario y te responderé lo antes posible.</p>
+      <form class="contacto-form" action="https://formsubmit.co/hrmbt@yahoo.com" method="POST">
+        <input type="hidden" name="_subject" value="Reserva de sesión - Mihaela Horumbete">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="multumesc.html">
+        <input type="text" name="_honey" style="display:none">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" name="nume" placeholder="Nombrele tău" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="adresa@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tipo de sesión</label>
+          <select name="tip_sesión">
+            <option value="">Elige el formato...</option>
+            <option value="online-1-1">Sesión online 1:1</option>
+            <option value="telefonica">Sesión telefónica</option>
+            <option value="curs-online">Curso online</option>
+            <option value="curs-fizic">Curso presencial</option>
+            <option value="grup">Curs în grup</option>
+            <option value="exploratorie">Sesión exploratoria</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea name="mesaj" rows="4" placeholder="Describe brevemente tu situación..." required></textarea>
+        </div>
+        <button type="submit" class="btn-gold" style="width:100%;">Enviar solicitud</button>
+      </form>
+    </div>
   </section>
 
   <a href="https://wa.me/34652323150" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
-      <footer>
+        <footer>
     <div class="footer-logo"><img src="logo.png" alt="Mihaela Horumbete" style="height:52px;width:auto;filter:none;"></div>
     <p style="text-align:center;">© 2026 Mihaela Horumbete · Coach<br><a href="https://velichi-luca.agency" target="_blank" style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:none;letter-spacing:1px;">Designed by velichi-luca.agency</a></p>
     <nav>
-      <a href="index.html">Acasă</a>
-      <a href="despre-mine.html">Despre mine</a>
-      <a href="intalniri.html">Întâlniri</a>
-      <a href="promotii.html">Promoții</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+      <a href="index-sp.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="sesiones.html">Sesiones</a>
+      <a href="promociones.html">Promociones</a>
+      <a href="blog-es.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
   </footer>
 
 
-  </body>
+  
+
+</body>
 </html>
